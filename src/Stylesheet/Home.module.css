@@ -1,0 +1,72 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    perspective: 1000px; /* Add perspective for 3D effect */
+  }
+  
+  .welcome {
+    text-align: center;
+    transform-style: preserve-3d;
+    animation: fadeIn 1s ease-out forwards;
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: moveIn 1s ease-out forwards;
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    animation: moveIn 1.5s ease-out forwards;
+  }
+  
+  .imageContainer {
+    width: 300px;
+    height: 300px;
+    transform: rotateY(20deg); /* Slight 3D rotation */
+    animation: rotateIn 2s ease-out forwards;
+  }
+  
+  .image {
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateZ(-100px);
+    }
+    to {
+      opacity: 1;
+      transform: translateZ(0);
+    }
+  }
+  
+  @keyframes moveIn {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes rotateIn {
+    from {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+    to {
+      opacity: 1;
+      transform: rotateY(0);
+    }
+  }
+  

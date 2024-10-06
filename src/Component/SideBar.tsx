@@ -1,4 +1,5 @@
 "use client";
+import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
@@ -16,47 +17,53 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
 export default function TemporaryDrawer() {
-  const [open, setOpen] = React.useState(true); // Start with the drawer open
-
-  const toggleDrawer = () => {
-    setOpen(!open);
+  const [open, setOpen] = React.useState(false);
+const router = useRouter();
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
   };
 
   const handleInboxClick = () => {
-    console.log('Inbox clicked');
+router.push("/AddStudent")
   };
 
   const handleStarredClick = () => {
     console.log('Starred clicked');
+    // Handle starred click
   };
 
   const handleSendEmailClick = () => {
     console.log('Send email clicked');
+    // Handle send email click
   };
 
   const handleDraftsClick = () => {
     console.log('Drafts clicked');
+    // Handle drafts click
   };
 
   const handleAllMailClick = () => {
     console.log('All mail clicked');
+    // Handle all mail click
   };
 
   const handleTrashClick = () => {
     console.log('Trash clicked');
+    // Handle trash click
   };
 
   const handleSpamClick = () => {
     console.log('Spam clicked');
+    // Handle spam click
   };
 
   const DrawerList = (
-    <Box sx={{ width: 250 }} role="presentation">
+    <Box sx={{ width: 250 }} role="presentation" onClick={toggleDrawer(false)}>
       <List>
         <ListItem disablePadding>
           <ListItemButton onClick={handleInboxClick}>
             <ListItemIcon><InboxIcon /></ListItemIcon>
-            <ListItemText primary="Inbox" />
+            <ListItemText primary="ADD STUDENT" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
@@ -107,39 +114,16 @@ export default function TemporaryDrawer() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            My Application
+            SCHOOL MANAGEMENT
           </Typography>
-          <Button color="inherit" onClick={toggleDrawer}>
-            {open ? 'Hide Drawer' : 'Show Drawer'}
-          </Button>
+          <Button color="inherit" onClick={()=>{router.push("/")}}>Home</Button>
+          <Button color="inherit" onClick={toggleDrawer(true)}>Dashboard</Button>
+         
         </Toolbar>
       </AppBar>
-      <Box sx={{ display: 'flex' }}>
-        <Drawer
-          variant="persistent"
-          anchor="left"
-          open={open}
-          sx={{
-            width: 250,
-            flexShrink: 0,
-            '& .MuiDrawer-paper': {
-              width: 250,
-              boxSizing: 'border-box',
-            },
-          }}
-        >
-          {DrawerList}
-        </Drawer>
-        <Box
-          component="main"
-          sx={{ flexGrow: 1, bgcolor: 'background.default', p: 3 }}
-        >
-          {/* Main content goes here */}
-          <Typography >
-            Main content area
-          </Typography>
-        </Box>
-      </Box>
+      <Drawer open={open} onClose={toggleDrawer(false)}>
+        {DrawerList}
+      </Drawer>
     </div>
   );
 }
