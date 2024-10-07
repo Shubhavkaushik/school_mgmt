@@ -16,7 +16,7 @@ export default function StudentForm() {
         updated_by: 'userId', // Replace with actual user ID or name
     };
 
-    fetch('/api/students/add', {
+    fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/students/add`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -25,12 +25,10 @@ export default function StudentForm() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-        // Handle success (e.g., show a message, reset form, etc.)
+        console.log(data); 
     })
     .catch(error => {
         console.error('Error:', error);
-        // Handle error (e.g., show an error message)
     });
 };
 
