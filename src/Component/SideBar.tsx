@@ -15,7 +15,10 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
-
+import AddIcon from '@mui/icons-material/Add';
+import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
+import ListAltIcon from '@mui/icons-material/ListAlt';
+import AssessmentIcon from '@mui/icons-material/Assessment';
 export default function TemporaryDrawer() {
   const [open, setOpen] = React.useState(false);
 const router = useRouter();
@@ -62,26 +65,26 @@ router.push("/AddStudent")
       <List>
         <ListItem disablePadding>
           <ListItemButton onClick={handleInboxClick}>
-            <ListItemIcon><InboxIcon /></ListItemIcon>
-            <ListItemText primary="ADD STUDENT" />
+            <ListItemIcon><AddIcon /></ListItemIcon>
+            <ListItemText primary="Add Student" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton onClick={handleStarredClick}>
-            <ListItemIcon><MailIcon /></ListItemIcon>
-            <ListItemText primary="Starred" />
+            <ListItemIcon><DeleteSweepIcon /></ListItemIcon>
+            <ListItemText primary="Remove Student" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton onClick={handleSendEmailClick}>
-            <ListItemIcon><MailIcon /></ListItemIcon>
-            <ListItemText primary="Send email" />
+            <ListItemIcon><ListAltIcon /></ListItemIcon>
+            <ListItemText primary="View All Student" />
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
           <ListItemButton onClick={handleDraftsClick}>
-            <ListItemIcon><MailIcon /></ListItemIcon>
-            <ListItemText primary="Drafts" />
+            <ListItemIcon><AssessmentIcon /></ListItemIcon>
+            <ListItemText primary="Result" />
           </ListItemButton>
         </ListItem>
       </List>

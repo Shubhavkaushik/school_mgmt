@@ -10,9 +10,30 @@ export default function StudentForm() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
-   
-  };
+    // Assuming 'userId' is the identifier for the user updating the student
+    const updatedData = {
+        ...data,
+        updated_by: 'userId', // Replace with actual user ID or name
+    };
+
+    fetch('/api/students/add', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(updatedData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        // Handle success (e.g., show a message, reset form, etc.)
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        // Handle error (e.g., show an error message)
+    });
+};
+
 
   
     
