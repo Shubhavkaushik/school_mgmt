@@ -32,7 +32,7 @@ router.push("/AddStudent")
 
   const handleStarredClick = () => {
     console.log('Starred clicked');
-    // Handle starred click
+  
   };
 
   const handleSendEmailClick = () => {
