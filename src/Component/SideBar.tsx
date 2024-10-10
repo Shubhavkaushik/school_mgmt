@@ -42,7 +42,7 @@ router.push("/AddStudent")
 
   const handleDraftsClick = () => {
     console.log('Drafts clicked');
-    // Handle drafts click
+ 
   };
 
   const handleAllMailClick = () => {
