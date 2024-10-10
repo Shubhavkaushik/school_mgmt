@@ -25,7 +25,7 @@ export default function StudentForm() {
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data); 
+        alert(data.message); 
     })
     .catch(error => {
         console.error('Error:', error);

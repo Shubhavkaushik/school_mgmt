@@ -35,8 +35,8 @@ router.push("/AddStudent")
   
   };
 
-  const handleSendEmailClick = () => {
-    console.log('Send email clicked');
+  const handleViewStudent = () => {
+    router.push("/ViewStudent")
     // Handle send email click
   };
 
@@ -76,7 +76,7 @@ router.push("/AddStudent")
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleSendEmailClick}>
+          <ListItemButton onClick={handleViewStudent}>
             <ListItemIcon><ListAltIcon /></ListItemIcon>
             <ListItemText primary="View All Student" />
           </ListItemButton>
