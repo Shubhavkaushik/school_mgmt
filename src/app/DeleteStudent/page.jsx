@@ -70,8 +70,8 @@ export default function Delete() {
             <td className="py-3 px-6">{student.aadharCardNo}</td>
             <td className="py-3 px-6">{new Date(student.dob).toLocaleDateString()}</td>
             <td className="py-3 px-6">{student.contactNumber}</td>
-           <td><button className="bg-gray-300 py-3 px-6" onClick>Edit</button></td> 
-           <td> <button className=" bg-red-200 py-3 px-6" onClick>Delete</button></td>
+           <td><button className="bg-gray-400 m-3 py-3 round-3 px-6" onClick>Edit</button></td> 
+           <td> <button className=" bg-red-600 py-3 px-6" onClick>Delete</button></td>
           </tr>
         ))}
       </tbody>
