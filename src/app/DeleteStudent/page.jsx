@@ -13,7 +13,7 @@ export default function Delete() {
     setResult(null);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/students/${classNumber}`,{
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/students/${srNumber}`,{
         method:"GET"
       });
       if (!response.ok) {
@@ -33,7 +33,7 @@ export default function Delete() {
         <form onSubmit={fetchClassData}>
           <input
             type="text"
-            value={classNumber}
+            value={srNumber}
             onChange={(e) => setClassNumber(e.target.value)}
             placeholder="Enter Class Number"
             className="border p-2 w-half mb-4 rounded"
@@ -47,7 +47,7 @@ export default function Delete() {
         {error && <p className="text-red-500 mt-4">{error}</p>}
         {result && result.length > 0 && (
   <div className="mt-4">
-    <h3 className="font-semibold">Class Strength:   {result.length}</h3>
+    <h3 className="font-semibold">Student Data: </h3>
     <table className="min-w-full bg-white border border-gray-300 mt-2">
       <thead>
         <tr className="bg-gray-200 text-gray-600 uppercase text-sm leading-normal">
@@ -57,7 +57,7 @@ export default function Delete() {
           <th className="py-3 px-6 text-left">Aadhar No</th>
           <th className="py-3 px-6 text-left">Date of Birth</th>
           <th className="py-3 px-6 text-left">Phone Number</th>
-          <th className="py-3 px-6 text-left">Edit Student</th>
+         
           <th className="py-3 px-6 text-left">Delete Student</th>
         </tr>
       </thead>
@@ -70,7 +70,7 @@ export default function Delete() {
             <td className="py-3 px-6">{student.aadharCardNo}</td>
             <td className="py-3 px-6">{new Date(student.dob).toLocaleDateString()}</td>
             <td className="py-3 px-6">{student.contactNumber}</td>
-           <td><button className="bg-gray-400 m-3 py-3 round-3 px-6" onClick>Edit</button></td> 
+          
            <td> <button className=" bg-red-600 py-3 px-6" onClick>Delete</button></td>
           </tr>
         ))}
