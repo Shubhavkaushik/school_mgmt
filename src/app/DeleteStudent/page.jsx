@@ -3,7 +3,7 @@ import { useState } from 'react';
 import SideBar from "@/Component/SideBar"
 
 export default function Delete() {
-  const [classNumber, setClassNumber] = useState('');
+  const [srNumber, setSrNumber] = useState('');
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
 
@@ -34,7 +34,7 @@ export default function Delete() {
           <input
             type="text"
             value={srNumber}
-            onChange={(e) => setClassNumber(e.target.value)}
+            onChange={(e) => setSrNumber(e.target.value)}
             placeholder="Enter Class Number"
             className="border p-2 w-half mb-4 rounded"
             required
