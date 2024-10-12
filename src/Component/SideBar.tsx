@@ -30,8 +30,8 @@ const router = useRouter();
 router.push("/AddStudent")
   };
 
-  const handleStarredClick = () => {
-    console.log('Starred clicked');
+  const handleDeleteStudent = () => {
+    router.push('/DeleteStudent');
   
   };
 
@@ -70,7 +70,7 @@ router.push("/AddStudent")
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding>
-          <ListItemButton onClick={handleStarredClick}>
+          <ListItemButton onClick={handleDeleteStudent}>
             <ListItemIcon><DeleteSweepIcon /></ListItemIcon>
             <ListItemText primary="Remove Student" />
           </ListItemButton>
