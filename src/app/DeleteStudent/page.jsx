@@ -13,7 +13,7 @@ export default function Delete() {
     setResult(null);
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/students/${srNumber}`,{
+      const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/students_delete/${srNumber}`,{
         method:"GET"
       });
       if (!response.ok) {
@@ -26,16 +26,34 @@ export default function Delete() {
     }
   };
 
+  const handleClick = async () => {
+    // Show confirmation dialog
+    const userConfirmed = window.confirm("Are you sure you want to delete this?");
+
+    // Check user's response
+    if (userConfirmed) {
+        try {
+            await deleteItem(); // Replace this with your actual delete function
+            alert("Item deleted successfully!");
+        } catch (error) {
+            console.error("Error deleting item:", error);
+            alert("There was an error deleting the item.");
+        }
+    } else {
+        alert("Deletion canceled.");
+    }
+};
+
   return (
     <><SideBar></SideBar>
  
-        <h2 className="text-2xl font-semibold mb-4">Fetch Class Data</h2>
+        <h2 className="text-2xl font-semibold mb-4">Fetch Student Data</h2>
         <form onSubmit={fetchClassData}>
           <input
             type="text"
             value={srNumber}
             onChange={(e) => setSrNumber(e.target.value)}
-            placeholder="Enter Class Number"
+            placeholder="Enter SR Number"
             className="border p-2 w-half mb-4 rounded"
             required
           />
@@ -62,18 +80,18 @@ export default function Delete() {
         </tr>
       </thead>
       <tbody className="text-gray-600 text-sm font-light">
-        {result.map((student) => (
-          <tr key={student.srNumber} className="border-b border-gray-300 hover:bg-gray-100">
-            <td className="py-3 px-6">{student.srNumber}</td>
-            <td className="py-3 px-6">{student.name}</td>
-            <td className="py-3 px-6">{student.class}</td>
-            <td className="py-3 px-6">{student.aadharCardNo}</td>
-            <td className="py-3 px-6">{new Date(student.dob).toLocaleDateString()}</td>
-            <td className="py-3 px-6">{student.contactNumber}</td>
+       
+          <tr key={data.srNumber} className="border-b border-gray-300 hover:bg-gray-100">
+            <td className="py-3 px-6">{data.srNumber}</td>
+            <td className="py-3 px-6">{data.name}</td>
+            <td className="py-3 px-6">{data.class}</td>
+            <td className="py-3 px-6">{data.aadharCardNo}</td>
+            <td className="py-3 px-6">{new Date(data.dob).toLocaleDateString()}</td>
+            <td className="py-3 px-6">{data.contactNumber}</td>
           
-           <td> <button className=" bg-red-600 py-3 px-6" onClick>Delete</button></td>
+           <td> <button className=" bg-red-600 py-3 px-6" onClick={handleClick}>Delete</button></td>
           </tr>
-        ))}
+  
       </tbody>
     </table>
   </div>
