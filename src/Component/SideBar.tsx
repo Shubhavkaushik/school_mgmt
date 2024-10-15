@@ -57,7 +57,7 @@ router.push("/AddStudent")
 
   const handleSpamClick = () => {
     console.log('Spam clicked');
-    // Handle spam click
+    
   };
 
   const DrawerList = (
