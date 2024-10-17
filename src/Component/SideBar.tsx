@@ -47,7 +47,6 @@ router.push("/AddStudent")
 
   const handleAllMailClick = () => {
     console.log('All mail clicked');
-    // Handle all mail click
   };
 
   const handleTrashClick = () => {
