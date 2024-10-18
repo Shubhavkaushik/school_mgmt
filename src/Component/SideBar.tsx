@@ -51,7 +51,7 @@ router.push("/AddStudent")
 
   const handleTrashClick = () => {
     console.log('Trash clicked');
-    // Handle trash 
+    // Handle  
   };
 
   const handleSpamClick = () => {
