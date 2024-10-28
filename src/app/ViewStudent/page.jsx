@@ -11,7 +11,7 @@ export default function Home() {
     e.preventDefault();
     setError('');
     setResult(null);
-
+//API
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/students/${classNumber}`,{
         method:"GET"
